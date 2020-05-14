@@ -1,0 +1,56 @@
+{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>All news</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
+</head>
+<body>
+	<div id="header">
+		<ul id="navigation">
+			<li>
+				<a href="{% url 'index' %}">home</a>
+			</li>
+			<li class="selected">
+				<a href="{% url 'articles' %}">articles</a>
+			</li>
+			<li>
+				<a href="{% url 'about' %}">about</a>
+			</li>
+		</ul>
+	</div>
+	<div id="body">
+		<h1><span>Articles</span></h1>
+		<div>
+			<ul>
+				{% for article in articles %}
+				<li>
+					<a class="figure">
+						<img width="377px" src="{{ article.image }}" alt="">
+					</a>
+					<div>
+						<h3>{{ article.head}}</h3>
+						<p>
+							{{ article.description }}
+						</p>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div id="footer">
+		<div>
+			<ul>
+				<li>
+					<a href="" id="twitter">telegram</a>
+				</li>
+				<li>
+					<a href="" id="facebook">instagram</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>

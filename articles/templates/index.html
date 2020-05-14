@@ -1,0 +1,48 @@
+{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>All news</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
+</head>
+<body>
+	<div id="header">
+		<ul id="navigation">
+			<li class="selected">
+				<a href="{% url 'index' %}">home</a>
+			</li>
+			<li>
+				<a href="{% url 'articles' %}">articles</a>
+			</li>
+			<li>
+				<a href="{% url 'about' %}">about</a>
+			</li>
+		</ul>
+	</div>
+	{% if article %}
+	<div id="body">
+		<div id="featured">
+			<img src="{{ article.image }}" alt="" width="1440px" height="554px">
+			<div>
+				<h2>{{ article.head }}</h2>
+				<span>The latest exclusive article on our blog</span>
+				<a href="{% url 'articles' %}" class="more">read more</a>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	<div id="footer">
+		<div>
+			<ul>
+				<li>
+					<a href="" id="twitter">telegram</a>
+				</li>
+				<li>
+					<a href="" id="facebook">instagram</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
